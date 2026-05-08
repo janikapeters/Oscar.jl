@@ -329,6 +329,10 @@ function compute_monomials(
       end 
     end
     if !isnothing(polytope)
+      @show polytopes
+      #@time convex_hull(polytopes)
+      #@time convex_hull(reduce(vcat, vertices.(polytopes)))
+      #polytope[highest_weight(V)] = convex_hull(reduce(vcat, vertices.(polytopes)))
       polytope[highest_weight(V)] = convex_hull(polytopes)
     end
     # check if we found enough monomials
